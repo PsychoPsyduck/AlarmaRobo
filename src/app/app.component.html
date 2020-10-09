@@ -1,0 +1,21 @@
+<div *ngIf="showSplash" class="splash">
+  <br>
+  <br>
+  <br>
+  <br>
+  <h4>Nicolas Sande</h4>
+  <div class="alarma">
+    <div >
+      <img class="img1" src="../assets/img/animacion-off.png" alt="">
+    </div>
+    <div *ngIf="alarma">
+      <img class="img2" src="../assets/img/animacion-on.png" alt="">
+    </div>
+  </div>
+  
+  <h4>Comisión 4B</h4>
+</div>
+
+<ion-app>
+  <ion-router-outlet></ion-router-outlet>
+</ion-app>

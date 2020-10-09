@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color='danger'>
+    <ion-button slot="end" fill="clear" (click)="logOut()">
+      <ion-icon style="color: aliceblue" name="log-out"></ion-icon>
+    </ion-button>
+    <ion-title>
+      Alarma Robo
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-toolbar [color]='background'>
+    <div *ngIf="activado">
+      <span><h2>Alarma Activada</h2></span>
+    </div>
+    <div *ngIf="!activado" >
+      <span><h2>Alarma Desactivada</h2></span>
+    </div>
+    <br>
+    <br>
+
+    <ion-button class="toolbut" shape="round" [disabled]="desBoton" (click)="activar()">
+      <img *ngIf="!activado" size="large" src="../../assets/img/animacion-off.png" alt="">
+      <img *ngIf="activado" size="large" src="../../assets/img/animacion-on.png" alt="">
+    </ion-button>
+    <br>
+
+    <div id="info-text" [style.color]="activado?'#fff':'#000'" >
+      <h2 *ngIf="!activado">Presione el botón para activar</h2> 
+      <h2 *ngIf="activado">Ingrese su clave y presione el botón para desactivar</h2> 
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <div *ngIf="contra" [ngClass]="clase">
+      <ion-item class="clave">
+        <ion-label position="floating" >Contraseña</ion-label>
+        <ion-input [(ngModel)]="clave" type="password" ></ion-input>
+        <ion-button (click)="verificar()" expand = "block" color = "primary">Verificar</ion-button>
+      </ion-item>
+    </div>
+    
+  </ion-toolbar>
+</ion-content>
